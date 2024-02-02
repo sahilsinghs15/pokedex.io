@@ -1,0 +1,12 @@
+.pokedex-wrapper{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    height: 100vh;
+    border: 2px solid black;
+    background: linear-gradient(to right , white,red );
+}
+
+#pokedex-heading{
+    margin: 0 auto;
+}
