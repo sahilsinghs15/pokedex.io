@@ -15,14 +15,14 @@ function usePokemonList() {
             setPokemonListState((state) => ({ ...state, isLoading: true}));
             const response = await axios.get(pokemonListState.pokedexUrl); // this downloads list of 20 pokemons
 
-            const pokemonResults = response.data.results;  // we get the array of pokemons from result
+            const pokemonResults = response.data.results;  // we get the Array of pokemons from result
 
             setPokemonListState((state) => ({
                 ...state, 
                 nextUrl: response.data.next, 
                 prevUrl: response.data.previous
             }));
-            const pokemonResultPromise = pokemonResults.map((pokemon) => axios.get(pokemon.url));
+            const pokemonResultPromise = pokemonResults.map((pokemon) => axios.get(pokemon.url));//we will get the url Promise of each pokemon from pokemonResults[]
 
             // passing that promise array to axios.all
             const pokemonData = await axios.all(pokemonResultPromise); // array of 20 pokemon detailed data
@@ -30,7 +30,7 @@ function usePokemonList() {
             // now iterate on the data of each pokemon, and extract id, name, image, types
 
             const pokeListResult = pokemonData.map((pokeData) => {
-                const pokemon = pokeData.data;
+                const pokemon = pokeData.data;//We will fetch a single pokemons data 
                 return {
                     id: pokemon.id,
                     name: pokemon.name, 
@@ -40,7 +40,7 @@ function usePokemonList() {
             });
             setPokemonListState((state) => ({
                 ...state,
-                pokemonList: pokeListResult, 
+                pokemonList: pokeListResult, //We will get Array of Pokemons Data in the form of Object {id , name , image , types}
                 isLoading: false
             }));
     }
@@ -49,7 +49,7 @@ function usePokemonList() {
         downloadPokemons();
     }, [pokemonListState.pokedexUrl]);
 
-    return [pokemonListState, setPokemonListState];
+    return [pokemonListState, setPokemonListState];//Return PokemonListState which contain each Pokemon's id , name , image and types  
 }
 
 export default usePokemonList;
