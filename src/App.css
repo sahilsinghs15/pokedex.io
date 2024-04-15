@@ -1,0 +1,23 @@
+.outer-pokedex{
+    position: relative;
+    left: 250px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 50%;
+    border: 40px solid rgb(210, 22, 22);
+    border-radius: 10%;
+    background: linear-gradient(to right , rgb(14, 14, 59) , black );
+    align-items: center;
+}
+
+#heading{
+    color: cyan;
+    background-color: aliceblue;
+    margin: 0 auto;
+    letter-spacing: 2px;
+}
+
+a:visited{
+    color: black;
+}

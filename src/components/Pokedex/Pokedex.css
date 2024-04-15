@@ -1,0 +1,9 @@
+.pokedex-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100vh;
+    background: linear-gradient(to right , rgb(157, 157, 243) , rgba(21, 8, 45, 0.954));
+    overflow-y: auto;
+}
+
